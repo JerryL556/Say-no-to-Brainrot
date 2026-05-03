@@ -1,0 +1,9 @@
+.venv/
+.venv-py313/
+models/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.task
+*.log

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Filter Webcam Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Webcam + MediaPipe + OpenCV</p>
+          <h1>Interactive AR Filter Console</h1>
+          <p class="lede">
+            Real-time tracking for the viral 67 two-hand seesaw gesture with live score
+            feedback and optional virtual-camera output.
+          </p>
+        </div>
+        <div class="status-pill">
+          <span id="status-dot"></span>
+          <span id="status-text">Starting</span>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="panel-header">
+          <h2>Live Preview</h2>
+          <p>Processed MJPEG stream from the Python engine</p>
+        </div>
+        <div class="preview-frame">
+          <img id="preview" src="/stream.mjpg" alt="Live webcam preview" />
+        </div>
+      </section>
+
+      <section class="below-grid">
+        <aside class="panel controls-panel">
+          <div class="panel-header">
+            <h2>67 Mode</h2>
+            <p>First show a left-hand 6 and right-hand 7 once to unlock the 67 effect.</p>
+          </div>
+
+          <div class="vcam-card">
+            <h3>Virtual Camera</h3>
+            <p>Publish the filtered output as a webcam source for other apps.</p>
+            <div class="button-row">
+              <button id="start-vcam" class="primary">Start</button>
+              <button id="stop-vcam" class="secondary">Stop</button>
+            </div>
+            <p id="vcam-status" class="small-copy">Idle</p>
+          </div>
+        </aside>
+
+        <section class="metrics">
+          <article class="metric-card">
+            <span class="metric-label">FPS</span>
+            <strong id="fps-value">0.0</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Face</span>
+            <strong id="face-value">No</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Hands</span>
+            <strong id="hands-value">0</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">67 Mode</span>
+            <strong id="combo-mode-value">locked</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">67 Score</span>
+            <strong id="score-value">0</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">67 Phase</span>
+            <strong id="combo-phase-value">idle</strong>
+          </article>
+          <article class="metric-card wide">
+            <span class="metric-label">Expressions</span>
+            <strong id="expressions-value">none</strong>
+          </article>
+          <article class="metric-card wide">
+            <span class="metric-label">Gestures</span>
+            <strong id="gestures-value">none</strong>
+          </article>
+          <article class="metric-card wide">
+            <span class="metric-label">67 Gesture</span>
+            <strong id="combo-gesture-value">67_seesaw</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Backend</span>
+            <strong id="backend-value">initializing</strong>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Detect Size</span>
+            <strong id="detect-size-value">-</strong>
+          </article>
+        </section>
+      </section>
+
+      <section class="panel footer-panel">
+        <div class="panel-header">
+          <h2>Runtime Notes</h2>
+          <p id="error-text">No errors reported.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
